@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/reseau/ResolutionDeNom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/serveur/Serveur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-    </list>
-    <list id="84fd72d2-dba6-4275-83d3-958fab491b17" name="Changes by burgu" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-    </list>
+    <list default="true" id="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" name="Changes" comment="" />
+    <list id="84fd72d2-dba6-4275-83d3-958fab491b17" name="Changes by burgu" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668515473737</updated>
-      <workItem from="1668515476841" duration="5510000" />
+      <workItem from="1668515476841" duration="6049000" />
     </task>
     <servers />
   </component>
