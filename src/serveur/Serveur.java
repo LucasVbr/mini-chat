@@ -3,55 +3,63 @@ package serveur;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Serveur {
+
+    private static final int PORT = 4444;
+    private static final Scanner scan = new Scanner(System.in);
+
     public static void main(String[] args) {
         ServerSocket serverSocket = null;
-        try {
-            serverSocket = new ServerSocket(4444);
-        } catch (IOException e) {
-            System.out.println("Could not listen on port 4444");
-            System.exit(-1);
-        }
-
         Socket clientSocket = null;
+
+        // Connexion
         try {
-            clientSocket = serverSocket.accept();
+            serverSocket = new ServerSocket(PORT); // Crée le serveur
+            clientSocket = serverSocket.accept();  // On recherche un client
         } catch (IOException e) {
-            System.out.println("Accept failed on port 4444");
+            System.out.printf("Erreur de connexion sur le port: %d\n", PORT);
             System.exit(-1);
         }
 
+        // Un client a été trouvé
         System.out.println("Client connecté");
-        boolean quitte = false;
+
+        boolean connectee = true;
         boolean reception = true;
 
-        DataOutputStream envoi = null;
-        BufferedReader recevoir = null;
+        BufferedReader in = null;
+
+        PrintWriter out = null;
 
         try {
-            OutputStream outputStream = clientSocket.getOutputStream();
-            envoi = new DataOutputStream(outputStream);
-            recevoir = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-            while (!quitte) {
+            out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+            String message = null;
+            do {
                 if (reception) {
-                    String message = null;
-                    while (message == null){
-                        message = recevoir.readLine();
-                    }
-                    while(message != null){
-                        System.out.println(message);
-                        message= recevoir.readLine();
-                    }
-
+                    message = in.readLine();
+                    System.out.printf("client > %s\n", message);
+                } else {
+                    System.out.print("serveur > ");
+                    message = scan.nextLine();
+                    out.println(message);
                 }
+
                 reception = !reception;
-            }
+            } while (!message.equals("bye"));
+
+            in.close();
+            out.close();
+            clientSocket.close();
+            serverSocket.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
 
     }
