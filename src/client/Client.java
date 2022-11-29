@@ -1,29 +1,41 @@
 package client;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.rmi.UnknownHostException;
+import java.security.Key;
+import java.util.Arrays;
 import java.util.Scanner;
+
+import reseau.AES;
 
 public class Client {
 
     public static final Scanner scan = new Scanner(System.in);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Socket serverSocket = null;
-        PrintWriter out = null;
-        BufferedReader in = null;
-        boolean ecoute = false;
+        ObjectOutputStream out = null;
+        ObjectInputStream in = null;
+
+        // Clé de chiffrage
+        Key key = AES.genererCle();
+        AES.sauvegarderCle(key);
 
         // Création des Sockets
         try {
             serverSocket = new Socket("localhost", 4444);
             System.out.println("Connecté au serveur");
-            out = new PrintWriter(serverSocket.getOutputStream(), true);
-            in = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
+            out = new ObjectOutputStream(serverSocket.getOutputStream());
+            in = new ObjectInputStream(serverSocket.getInputStream());
+
+            // On envoie la clé de chiffrage
+            out.writeObject(key);
+
+            System.out.println("Clé envoyé");
+            System.out.println(Arrays.toString(key.getEncoded()));
+
         } catch (UnknownHostException e) {
             System.out.println("Destination unknown");
             System.exit(-1);
@@ -32,24 +44,28 @@ public class Client {
             System.exit(-1);
         }
 
-        String message = null;
-        do {
-            //ecoute d'un message
-            if (ecoute) {
-                message = in.readLine();
-                System.out.printf("serveur > %s\n", message);
-            } else {
+        // Communication
+        String message;
+        byte[] messageCrypte;
+        try {
+            do {
+                // Envoi du message
                 System.out.print("client > ");
                 message = scan.nextLine();
-                out.println(message);
-            }
-            ecoute = !ecoute;
-        } while (!message.equals("bye"));
+                messageCrypte = AES.encrypter(message, key);
+                out.writeObject(messageCrypte);
 
-        //deconnexion
-        //fermeture des Sockets
-        out.close();
-        in.close();
-        serverSocket.close();
+                // Reception du message
+                messageCrypte = (byte[]) in.readObject();
+                message = AES.decrypter(messageCrypte, key);
+                System.out.printf("serveur > %s -> %s\n", new String(messageCrypte, StandardCharsets.UTF_8), message);
+            } while (!message.equals("bye"));
+
+            out.close();
+            in.close();
+            serverSocket.close();
+        }catch (IOException | ClassNotFoundException e) {
+           e.printStackTrace();
+        }
     }
 }

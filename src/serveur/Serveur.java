@@ -1,8 +1,13 @@
 package serveur;
 
+import reseau.AES;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.security.Key;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Serveur {
@@ -13,6 +18,7 @@ public class Serveur {
     public static void main(String[] args) {
         ServerSocket serverSocket = null;
         Socket clientSocket = null;
+        Key clientKey;
 
         // Connexion
         try {
@@ -26,30 +32,34 @@ public class Serveur {
         // Un client a été trouvé
         System.out.println("Client connecté");
 
-        boolean connectee = true;
-        boolean reception = true;
-
-        BufferedReader in = null;
-
-        PrintWriter out = null;
+        ObjectInputStream in;
+        ObjectOutputStream out;
 
         try {
-            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            in = new ObjectInputStream(clientSocket.getInputStream());
+            out = new ObjectOutputStream(clientSocket.getOutputStream());
 
-            out = new PrintWriter(clientSocket.getOutputStream(), true);
+            // On récupère la clé du client
+            clientKey = (Key) in.readObject();
 
-            String message = null;
+            System.out.println("Clé reçue");
+            System.out.println(Arrays.toString(clientKey.getEncoded()));
+
+            // Communication
+            String message;
+            byte[] messageCrypte;
             do {
-                if (reception) {
-                    message = in.readLine();
-                    System.out.printf("client > %s\n", message);
-                } else {
-                    System.out.print("serveur > ");
-                    message = scan.nextLine();
-                    out.println(message);
-                }
+                // Envoi du message
+                messageCrypte = (byte[]) in.readObject();
+                message = AES.decrypter(messageCrypte, clientKey);
+                System.out.printf("client > %s -> %s\n", new String(messageCrypte, StandardCharsets.UTF_8), message);
 
-                reception = !reception;
+
+                // Reception du message
+                System.out.print("serveur > ");
+                message = scan.nextLine();
+                messageCrypte = AES.encrypter(message, clientKey);
+                out.writeObject(messageCrypte);
             } while (!message.equals("bye"));
 
             in.close();
@@ -59,8 +69,8 @@ public class Serveur {
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-
-
     }
 }

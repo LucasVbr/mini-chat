@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/reseau/AES.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reseau/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reseau/AES.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/serveur/Serveur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serveur/Serveur.java" afterDir="false" />
     </list>
-    <list id="84fd72d2-dba6-4275-83d3-958fab491b17" name="Changes by burgu" comment="">
-      <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serveur/Serveur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serveur/Serveur.java" afterDir="false" />
-    </list>
+    <list id="84fd72d2-dba6-4275-83d3-958fab491b17" name="Changes by burgu" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,42 +24,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/serveur/Serveur.java">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="6" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="7" end1="7" start2="8" end2="12" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="9" end1="16" start2="14" end2="14" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="17" end1="17" start2="15" end2="17" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="18" end1="19" start2="18" end2="20" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="20" end1="21" start2="21" end2="22" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="24" end1="24" start2="25" end2="26" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="25" end1="26" start2="27" end2="29" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="28" end1="30" start2="31" end2="32" changelist="84fd72d2-dba6-4275-83d3-958fab491b17" />
-        <range start1="31" end1="31" start2="33" end2="35" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="32" end1="35" start2="36" end2="37" changelist="84fd72d2-dba6-4275-83d3-958fab491b17" />
-        <range start1="36" end1="37" start2="38" end2="42" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="38" end1="47" start2="43" end2="49" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="48" end1="48" start2="50" end2="51" changelist="84fd72d2-dba6-4275-83d3-958fab491b17" />
-        <range start1="49" end1="50" start2="52" end2="59" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="55" end1="56" start2="64" end2="64" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/client/Client.java">
-      <ranges>
-        <range start1="8" end1="8" start2="8" end2="9" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="10" end1="10" start2="11" end2="14" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="11" end1="12" start2="15" end2="16" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="14" end1="14" start2="18" end2="19" changelist="84fd72d2-dba6-4275-83d3-958fab491b17" />
-        <range start1="15" end1="15" start2="20" end2="21" changelist="84fd72d2-dba6-4275-83d3-958fab491b17" />
-        <range start1="16" end1="17" start2="22" end2="23" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="18" end1="20" start2="24" end2="26" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="28" end1="35" start2="34" end2="47" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="36" end1="36" start2="48" end2="50" changelist="84fd72d2-dba6-4275-83d3-958fab491b17" />
-        <range start1="38" end1="40" start2="52" end2="53" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -73,18 +35,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.AES">
+}</component>
+  <component name="RunManager" selected="Application.Client">
     <configuration name="AES" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="reseau.AES" />
       <module name="projet-mini-chat" />
@@ -177,6 +139,7 @@
       <updated>1668515473737</updated>
       <workItem from="1668515476841" duration="6049000" />
       <workItem from="1669119772164" duration="6834000" />
+      <workItem from="1669724625302" duration="5444000" />
     </task>
     <servers />
   </component>

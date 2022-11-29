@@ -1,39 +1,30 @@
 package reseau;
 
 import javax.crypto.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Arrays;
 
 public class AES {
 
-    public static byte[] genererCle() {
-        byte[] data;
-        byte[] result;
-        byte[] original = null;
+    public static Key genererCle() {
+        Key key = null;
+
         try {
-            KeyGenerator kg = KeyGenerator.getInstance("DES");
-            Key key = kg.generateKey();
-            return key.getEncoded();
-//            Cipher cipher = Cipher.getInstance("DES") ;
-//            cipher.init(Cipher.ENCRYPT_MODE, key) ;
-//            data = "Hello World".getBytes() ;
-//            result = cipher.doFinal(data) ;
-//            cipher.init(Cipher.DECRYPT_MODE, key) ;
-//            original = cipher.doFinal(result) ;
-//            System.out.println("Decrypted data :" + Arrays.toString(original)) ;
+            KeyGenerator keyGenerator = KeyGenerator.getInstance("DES");
+            key = keyGenerator.generateKey();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return original;
+        return key;
     }
 
-    public static byte[] decrypter(byte[] msg, Key key) {
+    public static String decrypter(byte[] msg, Key key) {
         try {
             Cipher cipher = Cipher.getInstance("DES") ;
             cipher.init(Cipher.DECRYPT_MODE, key);
-            return cipher.doFinal(msg);
+            return new String(cipher.doFinal(msg), StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,12 +42,22 @@ public class AES {
         return null;
     }
 
-    public static void sauvegarderFichier(Key key) {
-        Path fileName = Path.of("./cle.txt");
-        Files.writeString(fileName, new String(key));
+    public static void sauvegarderCle(Key key) {
+
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("key.ser"))) {
+            objectOutputStream.writeObject(key);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static void main(String[] args) {
-
+    public static Key chargerCle() {
+        Key key = null;
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("key.ser"))) {
+            key = (Key) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return key;
     }
 }
