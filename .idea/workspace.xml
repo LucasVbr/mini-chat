@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reseau/RSA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reseau/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reseau/AES.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/serveur/Serveur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serveur/Serveur.java" afterDir="false" />
     </list>
-    <list id="84fd72d2-dba6-4275-83d3-958fab491b17" name="Changes by burgu" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,9 +120,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AES" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Serveur" />
+        <item itemvalue="Application.AES" />
         <item itemvalue="Application.Client2" />
         <item itemvalue="Application.Serveur2" />
       </list>
@@ -139,7 +138,7 @@
       <updated>1668515473737</updated>
       <workItem from="1668515476841" duration="6049000" />
       <workItem from="1669119772164" duration="6834000" />
-      <workItem from="1669724625302" duration="5444000" />
+      <workItem from="1669724625302" duration="6630000" />
     </task>
     <servers />
   </component>

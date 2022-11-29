@@ -5,10 +5,13 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.rmi.UnknownHostException;
 import java.security.Key;
+import java.security.KeyPair;
+import java.security.PublicKey;
 import java.util.Arrays;
 import java.util.Scanner;
 
 import reseau.AES;
+import reseau.RSA;
 
 public class Client {
 
@@ -20,8 +23,10 @@ public class Client {
         ObjectInputStream in = null;
 
         // Clé de chiffrage
-        Key key = AES.genererCle();
-        AES.sauvegarderCle(key);
+        KeyPair clientKeyPair = RSA.genererCle();
+        PublicKey serverKey = null;
+
+//        AES.sauvegarderCle(key);
 
         // Création des Sockets
         try {
@@ -31,10 +36,9 @@ public class Client {
             in = new ObjectInputStream(serverSocket.getInputStream());
 
             // On envoie la clé de chiffrage
-            out.writeObject(key);
+            out.writeObject(clientKeyPair.getPublic());
 
-            System.out.println("Clé envoyé");
-            System.out.println(Arrays.toString(key.getEncoded()));
+            serverKey = (PublicKey) in.readObject();
 
         } catch (UnknownHostException e) {
             System.out.println("Destination unknown");
@@ -42,6 +46,8 @@ public class Client {
         } catch (IOException e) {
             System.out.println("now to investigate this IO issue");
             System.exit(-1);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
         // Communication
@@ -52,13 +58,13 @@ public class Client {
                 // Envoi du message
                 System.out.print("client > ");
                 message = scan.nextLine();
-                messageCrypte = AES.encrypter(message, key);
+                messageCrypte = RSA.encrypter(message, serverKey);
                 out.writeObject(messageCrypte);
 
                 // Reception du message
                 messageCrypte = (byte[]) in.readObject();
-                message = AES.decrypter(messageCrypte, key);
-                System.out.printf("serveur > %s -> %s\n", new String(messageCrypte, StandardCharsets.UTF_8), message);
+                message = RSA.decrypter(messageCrypte, clientKeyPair.getPrivate());
+                System.out.printf("serveur > %s\n", message);
             } while (!message.equals("bye"));
 
             out.close();

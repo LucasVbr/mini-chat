@@ -1,13 +1,13 @@
 package serveur;
 
-import reseau.AES;
+import reseau.RSA;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
-import java.security.Key;
-import java.util.Arrays;
+import java.security.KeyPair;
+import java.security.PublicKey;
 import java.util.Scanner;
 
 public class Serveur {
@@ -18,7 +18,9 @@ public class Serveur {
     public static void main(String[] args) {
         ServerSocket serverSocket = null;
         Socket clientSocket = null;
-        Key clientKey;
+
+        KeyPair serverKeyPairs = RSA.genererCle();
+        PublicKey clientKey;
 
         // Connexion
         try {
@@ -40,10 +42,8 @@ public class Serveur {
             out = new ObjectOutputStream(clientSocket.getOutputStream());
 
             // On récupère la clé du client
-            clientKey = (Key) in.readObject();
-
-            System.out.println("Clé reçue");
-            System.out.println(Arrays.toString(clientKey.getEncoded()));
+            clientKey = (PublicKey) in.readObject();
+            out.writeObject(serverKeyPairs.getPublic());
 
             // Communication
             String message;
@@ -51,14 +51,14 @@ public class Serveur {
             do {
                 // Envoi du message
                 messageCrypte = (byte[]) in.readObject();
-                message = AES.decrypter(messageCrypte, clientKey);
-                System.out.printf("client > %s -> %s\n", new String(messageCrypte, StandardCharsets.UTF_8), message);
+                message = RSA.decrypter(messageCrypte, serverKeyPairs.getPrivate());
+                System.out.printf("client > %s\n", message);
 
 
                 // Reception du message
                 System.out.print("serveur > ");
                 message = scan.nextLine();
-                messageCrypte = AES.encrypter(message, clientKey);
+                messageCrypte = RSA.encrypter(message, clientKey);
                 out.writeObject(messageCrypte);
             } while (!message.equals("bye"));
 
