@@ -2,15 +2,11 @@ package client;
 
 import java.io.*;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 import java.rmi.UnknownHostException;
-import java.security.Key;
 import java.security.KeyPair;
 import java.security.PublicKey;
-import java.util.Arrays;
 import java.util.Scanner;
 
-import reseau.AES;
 import reseau.RSA;
 
 public class Client {
@@ -25,8 +21,6 @@ public class Client {
         // Clé de chiffrage
         KeyPair clientKeyPair = RSA.genererCle();
         PublicKey serverKey = null;
-
-//        AES.sauvegarderCle(key);
 
         // Création des Sockets
         try {
