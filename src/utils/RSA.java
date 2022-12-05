@@ -1,4 +1,4 @@
-package reseau;
+package utils;
 
 import javax.crypto.Cipher;
 import java.nio.charset.StandardCharsets;

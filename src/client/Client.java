@@ -1,71 +1,92 @@
 package client;
 
-import java.io.*;
+import utils.RSA;
+import utils.ResolutionDeNom;
+
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ConnectException;
 import java.net.Socket;
-import java.rmi.UnknownHostException;
 import java.security.KeyPair;
 import java.security.PublicKey;
+import java.util.Objects;
 import java.util.Scanner;
-
-import reseau.RSA;
 
 public class Client {
 
-    public static final Scanner scan = new Scanner(System.in);
+    private final String SERVER_IP;
+    private final int SERVER_PORT;
+    private final Scanner scanner;
+    private ObjectInputStream inputStream;
+    private ObjectOutputStream outputStream;
+    private KeyPair clientKeys;
+    private PublicKey serverKey;
+
+    private String pseudo;
+
+    public Client(String ip, int port) {
+        this.SERVER_IP = ResolutionDeNom.getIPAddress(ip);
+        this.SERVER_PORT = port;
+        this.scanner = new Scanner(System.in);
+        this.clientKeys = RSA.genererCle();
+    }
+
+    public void start() {
+        System.out.print("Saisir un pseudo: ");
+        pseudo = scanner.nextLine();
+
+        try (Socket socket = new Socket(SERVER_IP, SERVER_PORT)) {
+            inputStream = new ObjectInputStream(socket.getInputStream());
+            outputStream = new ObjectOutputStream(socket.getOutputStream());
+
+            exchangeKeys();
+
+            sendMessage(pseudo);
+
+            // Ecoute du serveur
+            ListenThread threadClient = new ListenThread(this);
+            threadClient.start();
+
+            // Ecoute de l'entrée du clavier
+            System.out.println("Tappez 'bye' pour quitter\n");
+            String message;
+            do {
+                message = scanner.nextLine();
+                sendMessage(message);
+            } while (!Objects.equals(message, "bye"));
+
+        } catch (ConnectException e) {
+            System.err.println("Serveur non trouvé");
+        }catch (EOFException e) {
+            System.err.println("Connexion perdue");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void exchangeKeys() throws IOException, ClassNotFoundException {
+        // Envoie sa clé
+        outputStream.writeObject(clientKeys.getPublic());
+
+        // Attend la clé du serveur
+        serverKey = (PublicKey) inputStream.readObject();
+    }
+
+    public void sendMessage(String message) throws IOException {
+        byte[] messageCrypte = RSA.encrypter(message, serverKey);
+        outputStream.writeObject(messageCrypte);
+    }
+
+    public String getMessage() throws IOException, ClassNotFoundException {
+        byte[] messageCrypte = (byte[]) inputStream.readObject();
+        return RSA.decrypter(messageCrypte, clientKeys.getPrivate());
+    }
+
 
     public static void main(String[] args) {
-        Socket serverSocket = null;
-        ObjectOutputStream out = null;
-        ObjectInputStream in = null;
-
-        // Clé de chiffrage
-        KeyPair clientKeyPair = RSA.genererCle();
-        PublicKey serverKey = null;
-
-        // Création des Sockets
-        try {
-            serverSocket = new Socket("localhost", 4444);
-            System.out.println("Connecté au serveur");
-            out = new ObjectOutputStream(serverSocket.getOutputStream());
-            in = new ObjectInputStream(serverSocket.getInputStream());
-
-            // On envoie la clé de chiffrage
-            out.writeObject(clientKeyPair.getPublic());
-
-            serverKey = (PublicKey) in.readObject();
-
-        } catch (UnknownHostException e) {
-            System.out.println("Destination unknown");
-            System.exit(-1);
-        } catch (IOException e) {
-            System.out.println("now to investigate this IO issue");
-            System.exit(-1);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-        // Communication
-        String message;
-        byte[] messageCrypte;
-        try {
-            do {
-                // Envoi du message
-                System.out.print("client > ");
-                message = scan.nextLine();
-                messageCrypte = RSA.encrypter(message, serverKey);
-                out.writeObject(messageCrypte);
-
-                // Reception du message
-                messageCrypte = (byte[]) in.readObject();
-                message = RSA.decrypter(messageCrypte, clientKeyPair.getPrivate());
-                System.out.printf("serveur > %s\n", message);
-            } while (!message.equals("bye"));
-
-            out.close();
-            in.close();
-            serverSocket.close();
-        }catch (IOException | ClassNotFoundException e) {
-           e.printStackTrace();
-        }
+        Client client = new Client("localhost", 4444);
+        client.start();
     }
 }

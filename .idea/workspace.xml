@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/client/ListenThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/serveur/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/serveur/ThreadServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/utils/ResolutionDeNomTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/key.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet-mini-chat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projet-mini-chat.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reseau/RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reseau/RSA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serveur/Serveur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serveur/Serveur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reseau/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AES.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reseau/RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/RSA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reseau/ResolutionDeNom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ResolutionDeNom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serveur/Serveur.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -33,24 +43,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "last_opened_file_path": "/Users/lucas/Documents/GitHub/projet-mini-chat/src/serveur",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/serveur" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/client" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="utils" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Client">
-    <configuration name="AES" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="reseau.AES" />
+    <configuration name="Client (1)" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.Client" />
       <module name="projet-mini-chat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="reseau.*" />
+          <option name="PATTERN" value="client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -71,8 +104,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Client2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.Client2" />
+    <configuration name="Client" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.Client" />
       <module name="projet-mini-chat" />
       <extension name="coverage">
         <pattern>
@@ -84,8 +117,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Serveur" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="serveur.Serveur" />
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="serveur.Server" />
       <module name="projet-mini-chat" />
       <extension name="coverage">
         <pattern>
@@ -97,33 +130,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Serveur2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="serveur.Serveur2" />
+    <configuration name="ResolutionDeNomTest.getIPAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="projet-mini-chat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="serveur.*" />
+          <option name="PATTERN" value="utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="utils" />
+      <option name="MAIN_CLASS_NAME" value="utils.ResolutionDeNomTest" />
+      <option name="METHOD_NAME" value="getIPAddress" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.AES" />
-      <item itemvalue="Application.Client2" />
-      <item itemvalue="Application.Serveur2" />
       <item itemvalue="Application.Client" />
-      <item itemvalue="Application.Serveur" />
+      <item itemvalue="Application.Client (1)" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="JUnit.ResolutionDeNomTest.getIPAddress" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Client" />
-        <item itemvalue="Application.Serveur" />
-        <item itemvalue="Application.AES" />
-        <item itemvalue="Application.Client2" />
-        <item itemvalue="Application.Serveur2" />
+        <item itemvalue="JUnit.ResolutionDeNomTest.getIPAddress" />
       </list>
     </recent_temporary>
   </component>
@@ -138,6 +171,7 @@
       <workItem from="1668515476841" duration="6049000" />
       <workItem from="1669119772164" duration="6834000" />
       <workItem from="1669724625302" duration="6630000" />
+      <workItem from="1670230395395" duration="11270000" />
     </task>
     <servers />
   </component>
