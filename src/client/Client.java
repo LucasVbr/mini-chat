@@ -1,8 +1,11 @@
 package client;
 
+import ui.FenetreClient;
+import ui.FenetreErreur;
 import utils.RSA;
 import utils.ResolutionDeNom;
 
+import javax.swing.*;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -11,56 +14,90 @@ import java.net.ConnectException;
 import java.net.Socket;
 import java.security.KeyPair;
 import java.security.PublicKey;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Client {
+public class Client extends Thread{
 
     private final String SERVER_IP;
     private final int SERVER_PORT;
+    private final FenetreClient fenetre;
+    private String pseudo;
+
     private final Scanner scanner;
-    private ObjectInputStream inputStream;
-    private ObjectOutputStream outputStream;
     private KeyPair clientKeys;
     private PublicKey serverKey;
 
-    private String pseudo;
+    private ObjectInputStream inputStream;
+    private ObjectOutputStream outputStream;
 
-    public Client(String ip, int port) {
+    private ArrayList<String> fileAttenteMessage;
+
+    public Client(String ip, int port, String pseudo) {
         this.SERVER_IP = ResolutionDeNom.getIPAddress(ip);
         this.SERVER_PORT = port;
+        this.pseudo = pseudo;
+        this.fenetre = null;
+
         this.scanner = new Scanner(System.in);
         this.clientKeys = RSA.genererCle();
+
+        this.fileAttenteMessage = new ArrayList<>();
     }
 
-    public void start() {
-        System.out.print("Saisir un pseudo: ");
-        pseudo = scanner.nextLine();
+    public Client(String ip, int port, String pseudo, FenetreClient fenetre) {
+        this.SERVER_IP = ResolutionDeNom.getIPAddress(ip);
+        this.SERVER_PORT = port;
+        this.pseudo = pseudo;
+        this.fenetre = fenetre;
+
+        this.scanner = new Scanner(System.in);
+        this.clientKeys = RSA.genererCle();
+
+        this.fileAttenteMessage = new ArrayList<>();
+    }
+
+    @Override
+    public void run() {
+        if (pseudo == null) {
+            System.out.print("Pseudo: ");
+            pseudo = scanner.nextLine();
+        }
 
         try (Socket socket = new Socket(SERVER_IP, SERVER_PORT)) {
             inputStream = new ObjectInputStream(socket.getInputStream());
             outputStream = new ObjectOutputStream(socket.getOutputStream());
 
             exchangeKeys();
-
             sendMessage(pseudo);
 
             // Ecoute du serveur
-            ListenThread threadClient = new ListenThread(this);
+            ListenThread threadClient = new ListenThread(this, fenetre);
             threadClient.start();
 
             // Ecoute de l'entrée du clavier
-            System.out.println("Tappez 'bye' pour quitter\n");
-            String message;
+            System.out.println("Tapez 'bye' pour quitter\n");
+            String message = "";
             do {
-                message = scanner.nextLine();
-                sendMessage(message);
+                if (fileAttenteMessage.size() > 0) {
+                    message = fileAttenteMessage.remove(0);
+                    sendMessage(message);
+                }
             } while (!Objects.equals(message, "bye"));
 
         } catch (ConnectException e) {
-            System.err.println("Serveur non trouvé");
-        }catch (EOFException e) {
-            System.err.println("Connexion perdue");
+            System.err.println("Serveur non trouvé"); // TODO throw error
+            if (fenetre != null) {
+                new FenetreErreur("Serveur non trouvé", fenetre);
+                fenetre.deconnexion();
+            }
+        } catch (EOFException e) {
+            System.err.println("Connexion perdue"); // TODO throw error
+            if (fenetre != null) {
+                new FenetreErreur("Connexion perdue", fenetre);
+                fenetre.deconnexion();
+            }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -84,9 +121,11 @@ public class Client {
         return RSA.decrypter(messageCrypte, clientKeys.getPrivate());
     }
 
-
-    public static void main(String[] args) {
-        Client client = new Client("localhost", 4444);
-        client.start();
+    /**
+     * Ajoute un message à la file d'attente
+     * @param message
+     */
+    public void addMessage(String message) {
+        this.fileAttenteMessage.add(message);
     }
 }

@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/client/ListenThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/serveur/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/serveur/ThreadServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/utils/ResolutionDeNomTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/FenetreClient.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/FenetreClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/FenetreErreur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/FenetreServeur.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/FenetreServeur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/key.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet-mini-chat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projet-mini-chat.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reseau/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reseau/RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/RSA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reseau/ResolutionDeNom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ResolutionDeNom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serveur/Serveur.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/ListenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ListenThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serveur/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serveur/ThreadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ThreadServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,31 +42,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "last_opened_file_path": "/Users/lucas/Documents/GitHub/projet-mini-chat/src/serveur",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/lucas/Documents/GitHub/projet-mini-chat/src/serveur&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/serveur" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ui" />
       <recent name="$PROJECT_DIR$/src/client" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -77,20 +77,7 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
-    <configuration name="Client (1)" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.Client" />
-      <module name="projet-mini-chat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.FenetreServeur">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.Client" />
       <module name="projet-mini-chat" />
@@ -104,12 +91,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Client" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.Client" />
+    <configuration name="FenetreServeur" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.FenetreServeur" />
       <module name="projet-mini-chat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="client.*" />
+          <option name="PATTERN" value="ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,11 +105,37 @@
       </method>
     </configuration>
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="serveur.Server" />
+      <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="projet-mini-chat" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="serveur.*" />
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ui.FenetreClient (1)" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.FenetreClient" />
+      <module name="projet-mini-chat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ui.FenetreClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.FenetreClient" />
+      <module name="projet-mini-chat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -147,16 +160,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ui.FenetreClient (1)" />
       <item itemvalue="Application.Client" />
-      <item itemvalue="Application.Client (1)" />
+      <item itemvalue="Application.FenetreServeur" />
+      <item itemvalue="Application.ui.FenetreClient" />
       <item itemvalue="Application.Server" />
       <item itemvalue="JUnit.ResolutionDeNomTest.getIPAddress" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FenetreServeur" />
+        <item itemvalue="Application.ui.FenetreClient" />
+        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
         <item itemvalue="Application.Client" />
-        <item itemvalue="JUnit.ResolutionDeNomTest.getIPAddress" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +188,7 @@
       <workItem from="1668515476841" duration="6049000" />
       <workItem from="1669119772164" duration="6834000" />
       <workItem from="1669724625302" duration="6630000" />
-      <workItem from="1670230395395" duration="11270000" />
+      <workItem from="1670230395395" duration="19588000" />
     </task>
     <servers />
   </component>

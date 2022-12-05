@@ -2,7 +2,7 @@
 
 ## Avant la communication
 Utiliser le RSA, avant toute communication. 
-Le client et le serveur génèrent 2 clés (une publique et une privées)
+Le client et le server génèrent 2 clés (une publique et une privées)
 Ils s'échangent leurs clé publiques.
 
 ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Asymmetric_cryptography_-_step_1.svg/800px-Asymmetric_cryptography_-_step_1.svg.png)
