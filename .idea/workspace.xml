@@ -2,27 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/ListenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ListenThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/ThreadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ThreadServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/FenetreClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/FenetreClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/FenetreErreur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/FenetreErreur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/FenetreServeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/FenetreServeur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/RSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/RSA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/ResolutionDeNom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ResolutionDeNom.java" afterDir="false" />
     </list>
-    <list id="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" name="Changes by burgu" comment="">
-      <change beforePath="$PROJECT_DIR$/src/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/ListenThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/ListenThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/ThreadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/ThreadServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/FenetreServeur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/FenetreServeur.java" afterDir="false" />
-    </list>
+    <list id="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" name="Changes by burgu" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,92 +25,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/client/ListenThread.java">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="6" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="10" end1="11" start2="16" end2="21" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="14" end1="14" start2="24" end2="25" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="15" end1="15" start2="26" end2="28" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="17" end1="17" start2="30" end2="35" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="22" end1="22" start2="40" end2="46" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="47" end1="48" start2="71" end2="72" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/server/Server.java">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="6" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="8" end1="9" start2="14" end2="22" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="10" end1="10" start2="23" end2="26" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="11" end1="11" start2="27" end2="31" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="12" end1="12" start2="32" end2="36" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="14" end1="14" start2="38" end2="43" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="17" end1="18" start2="46" end2="46" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="21" end1="21" start2="49" end2="55" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="35" end1="36" start2="69" end2="70" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="37" end1="37" start2="71" end2="72" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="39" end1="40" start2="74" end2="75" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="41" end1="41" start2="76" end2="77" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="42" end1="43" start2="78" end2="78" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="50" end1="55" start2="85" end2="85" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/client/Client.java">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="6" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="7" end1="8" start2="13" end2="13" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="20" end1="20" start2="25" end2="33" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="22" end1="22" start2="35" end2="36" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="26" end1="26" start2="40" end2="42" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="28" end1="30" start2="44" end2="44" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="31" end1="31" start2="45" end2="46" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="36" end1="36" start2="51" end2="69" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="48" end1="48" start2="81" end2="88" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="105" end1="105" start2="145" end2="150" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="113" end1="113" start2="158" end2="163" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="118" end1="118" start2="168" end2="174" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="125" end1="126" start2="181" end2="182" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/ui/FenetreServeur.java">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="6" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="5" end1="5" start2="11" end2="12" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="6" end1="6" start2="13" end2="20" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="12" end1="12" start2="26" end2="30" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="14" end1="14" start2="32" end2="35" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="18" end1="18" start2="39" end2="40" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="19" end1="19" start2="41" end2="43" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="20" end1="20" start2="44" end2="45" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="27" end1="27" start2="52" end2="55" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="29" end1="29" start2="57" end2="59" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="32" end1="32" start2="62" end2="63" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="36" end1="36" start2="67" end2="72" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="38" end1="39" start2="74" end2="75" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="45" end1="45" start2="81" end2="86" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/server/ThreadServer.java">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="6" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="12" end1="12" start2="18" end2="26" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="15" end1="15" start2="29" end2="32" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="16" end1="16" start2="33" end2="37" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="17" end1="17" start2="38" end2="42" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="18" end1="18" start2="43" end2="47" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="19" end1="19" start2="48" end2="53" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="20" end1="21" start2="54" end2="58" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="23" end1="23" start2="60" end2="67" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="32" end1="32" start2="76" end2="84" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="72" end1="72" start2="124" end2="130" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="80" end1="80" start2="138" end2="146" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="85" end1="85" start2="151" end2="158" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="88" end1="90" start2="161" end2="166" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-        <range start1="92" end1="92" start2="168" end2="175" changelist="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" />
-        <range start1="96" end1="98" start2="179" end2="184" changelist="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -152,6 +52,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "last_opened_file_path": "/Users/lucas/Documents/GitHub/projet-mini-chat/src/serveur",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -173,52 +74,13 @@
       <recent name="utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ui.App" />
-      <module name="projet-mini-chat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.Client" />
-      <module name="projet-mini-chat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.ui.FenetreClient">
     <configuration name="FenetreServeur" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ui.FenetreServeur" />
       <module name="projet-mini-chat" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ui.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server.Server" />
-      <module name="projet-mini-chat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -254,19 +116,13 @@
     </configuration>
     <list>
       <item itemvalue="Application.ui.FenetreClient (1)" />
-      <item itemvalue="Application.App" />
-      <item itemvalue="Application.Client" />
       <item itemvalue="Application.FenetreServeur" />
       <item itemvalue="Application.ui.FenetreClient" />
-      <item itemvalue="Application.Server" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="Application.FenetreServeur" />
         <item itemvalue="Application.ui.FenetreClient" />
-        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.FenetreServeur" />
       </list>
     </recent_temporary>
   </component>
@@ -282,7 +138,8 @@
       <workItem from="1669119772164" duration="6834000" />
       <workItem from="1669724625302" duration="6630000" />
       <workItem from="1670230395395" duration="19588000" />
-      <workItem from="1670329829454" duration="6293000" />
+      <workItem from="1670329829454" duration="6520000" />
+      <workItem from="1670405222370" duration="1434000" />
     </task>
     <servers />
   </component>

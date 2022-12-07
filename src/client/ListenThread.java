@@ -22,10 +22,14 @@ import java.net.SocketException;
  */
 public class ListenThread extends Thread {
 
-    /** Instance du client */
+    /**
+     * Instance du client
+     */
     private final Client client;
 
-    /** Interface utilisateur du client */
+    /**
+     * Interface utilisateur du client
+     */
     private final FenetreClient fenetre;
 
     /**
@@ -39,10 +43,10 @@ public class ListenThread extends Thread {
     }
 
     /**
-     * Object d'ecoute avec fenetre
+     * Crée un nouveau thread lorsque le client utilise une interface utilisateur
      *
-     * @param client  client associe à l'ecoute
-     * @param fenetre fenetreClient associe à l'ecoute
+     * @param client  client associe à l'écoute
+     * @param fenetre Interface utilisateur du client
      */
     public ListenThread(Client client, FenetreClient fenetre) {
         this.client = client;
@@ -56,16 +60,16 @@ public class ListenThread extends Thread {
             String message;
             while (true) {
                 message = client.getMessage();
+
+                // Log
                 System.out.println(message);
-                if (fenetre != null) {
-                    fenetre.displayNewMessage(message);
-                }
+                if (fenetre != null) fenetre.displayNewMessage(message);
             }
-        } catch (SocketException ignored) {
+        } catch (SocketException ignored) { // Le socket client est fermé
             System.out.println("Vous avez quitté le salon");
-        } catch (EOFException ignored) {
+        } catch (EOFException ignored) { // Fermeture coté serveur
             System.err.println("Connexion perdue");
-            if (fenetre != null) {
+            if (fenetre != null) { // Affiche une erreur sur l'interface utilisateur
                 new FenetreErreur("Connexion perdue", fenetre);
                 fenetre.deconnexion();
             }

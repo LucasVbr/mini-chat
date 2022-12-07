@@ -31,24 +31,64 @@ import java.util.Scanner;
  * @author Lucàs Vabre
  */
 
-public class Client extends Thread{
+public class Client extends Thread {
 
-    //elements d'un client
+    /**
+     * Adresse IP de connexion au serveur
+     */
     private final String SERVER_IP;
+
+    /**
+     * Port de connexion du serveur
+     */
     private final int SERVER_PORT;
+
+    /**
+     * Interface utilisateur
+     */
     private final FenetreClient fenetre;
+
+    /**
+     * Le pseudonyme du client
+     */
     private String pseudo;
-    private KeyPair clientKeys;
+
+    /**
+     * Paire de clés de chiffrage du client
+     */
+    private final KeyPair clientKeys;
+
+    /**
+     * Clé publique du serveur
+     */
     private PublicKey serverKey;
 
+    /**
+     * Flux d'entrée pour la version console
+     */
     private final Scanner scanner;
 
-    // Sockets de connexion
+    /**
+     * Flux d'entrée du socket
+     */
     private ObjectInputStream inputStream;
+
+    /**
+     * Flux de sortie du socket
+     */
     private ObjectOutputStream outputStream;
 
-    private ArrayList<String> fileAttenteMessage;
+    /**
+     * File d'attente des messages à envoyer
+     */
+    private final ArrayList<String> fileAttenteMessage;
 
+    /**
+     * Crée un nouveau client qui se connecte à un serveur
+     *
+     * @param ip   Adresse du serveur (IP ou URI)
+     * @param port Port de connexion
+     */
     public Client(String ip, int port) {
         this.SERVER_IP = ResolutionDeNom.getIPAddress(ip);
         this.SERVER_PORT = port;
@@ -62,10 +102,11 @@ public class Client extends Thread{
     }
 
     /**
-     * ancien object client sans fenetre
-     * @param ip adresse ip du client
-     * @param port numeros de port du client
-     * @param pseudo pseudo du client
+     * Crée un nouveau client qui se connecte à un serveur avec un pseudo
+     *
+     * @param ip     Adresse du serveur (IP ou URI)
+     * @param port   Port de connexion
+     * @param pseudo Le pseudo du client
      */
     public Client(String ip, int port, String pseudo) {
         this.SERVER_IP = ResolutionDeNom.getIPAddress(ip);
@@ -80,11 +121,12 @@ public class Client extends Thread{
     }
 
     /**
-     * Object client actuel
-     * @param ip adresse ip du client
-     * @param port numeros de port du client
-     * @param pseudo nom du client
-     * @param fenetre fenetreClient assicié au client
+     * Crée un nouveau client lié à une interface utilisateur
+     *
+     * @param ip      Adresse du serveur (IP ou URI)
+     * @param port    Port de connexion au serveur
+     * @param pseudo  Pseudonyme du client
+     * @param fenetre Interface du client
      */
     public Client(String ip, int port, String pseudo, FenetreClient fenetre) {
         this.SERVER_IP = ResolutionDeNom.getIPAddress(ip);
@@ -100,26 +142,30 @@ public class Client extends Thread{
 
     @Override
     public void run() {
+        // Demande la saisie du pseudo s'il n'est pas défini
         if (pseudo == null) {
             System.out.print("Pseudo: ");
             pseudo = scanner.nextLine();
         }
 
+        // Connexion au socket
         try (Socket socket = new Socket(SERVER_IP, SERVER_PORT)) {
             inputStream = new ObjectInputStream(socket.getInputStream());
             outputStream = new ObjectOutputStream(socket.getOutputStream());
 
+            // Initialisation : envoi des clés et du pseudo
             exchangeKeys();
             sendMessage(pseudo);
 
-            // Ecoute du serveur
+            // Écoute du serveur
             ListenThread threadClient = new ListenThread(this, fenetre);
             threadClient.start();
 
-            // Ecoute de l'entrée du clavier
+            // Écoute de l'entrée du clavier
             System.out.println("Tapez 'bye' pour quitter\n");
             String message = "";
             do {
+                // S'il y a un message dans la file d'attente, on l'envoie
                 if (fileAttenteMessage.size() > 0) {
                     message = fileAttenteMessage.remove(0);
                     sendMessage(message);
@@ -127,14 +173,15 @@ public class Client extends Thread{
             } while (!Objects.equals(message, "bye"));
 
         } catch (ConnectException e) {
-            System.err.println("Serveur non trouvé"); // TODO throw error
-            if (fenetre != null) {
+            System.err.println("Serveur non trouvé");
+
+            if (fenetre != null) { // Affiche l'erreur sur l'interface utilisateur
                 new FenetreErreur("Serveur non trouvé", fenetre);
                 fenetre.deconnexion();
             }
         } catch (EOFException e) {
-            System.err.println("Connexion perdue"); // TODO throw error
-            if (fenetre != null) {
+            System.err.println("Connexion perdue");
+            if (fenetre != null) { // Affiche l'erreur sur l'interface utilisateur
                 new FenetreErreur("Connexion perdue", fenetre);
                 fenetre.deconnexion();
             }
@@ -144,11 +191,12 @@ public class Client extends Thread{
     }
 
     /**
-     * envoie la clef client au serveur
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * Échange les clés publiques du client et du serveur
+     *
+     * @throws IOException            Erreur de connexion
+     * @throws ClassNotFoundException L'objet reçu n'a pas pu être cast en PublicKey
      */
-    public void exchangeKeys() throws IOException, ClassNotFoundException {
+    private void exchangeKeys() throws IOException, ClassNotFoundException {
         // Envoie sa clé
         outputStream.writeObject(clientKeys.getPublic());
 
@@ -157,9 +205,10 @@ public class Client extends Thread{
     }
 
     /**
-     * envoie un message dans la socket
-     * @param message message a envoyer au serveur
-     * @throws IOException
+     * Envoie un message au serveur
+     *
+     * @param message Le message à envoyer
+     * @throws IOException Erreur de connexion au socket
      */
     public void sendMessage(String message) throws IOException {
         byte[] messageCrypte = RSA.encrypter(message, serverKey);
@@ -167,10 +216,11 @@ public class Client extends Thread{
     }
 
     /**
-     * Recupere un message evoye par le serveur
-     * @return
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * Récupère un message du serveur
+     *
+     * @return Le message reçu
+     * @throws IOException            Erreur de connexion au serveur
+     * @throws ClassNotFoundException L'objet reçu n'a pas pu être cast en byte[]
      */
     public String getMessage() throws IOException, ClassNotFoundException {
         byte[] messageCrypte = (byte[]) inputStream.readObject();
@@ -178,8 +228,9 @@ public class Client extends Thread{
     }
 
     /**
-     * Ajoute un message à la file d'attente
-     * @param message messsage a ajouter a la file
+     * Ajoute un message dans la file d'attente des messages à envoyer
+     *
+     * @param message Le message à envoyer
      */
     public void addMessage(String message) {
         this.fileAttenteMessage.add(message);

@@ -51,6 +51,7 @@ public class FenetreClient extends JFrame {
         // Au lancement, on ne peut pas envoyer de message sans être connecté au serveur
         messageInput.setEnabled(false);
         envoyerButton.setEnabled(false);
+        deconnexionButton.setEnabled(false);
 
         // Action des boutons
         messageInput.addKeyListener(new KeyAdapter() {
@@ -114,10 +115,12 @@ public class FenetreClient extends JFrame {
         addressInput.setEnabled(false);
         portInput.setEnabled(false);
         pseudoInput.setEnabled(false);
+        connexionButton.setEnabled(false);
 
         // Active l'interface de tchat
         messageInput.setEnabled(true);
         envoyerButton.setEnabled(true);
+        deconnexionButton.setEnabled(true);
     }
 
     /**
@@ -137,10 +140,12 @@ public class FenetreClient extends JFrame {
         addressInput.setEnabled(true);
         portInput.setEnabled(true);
         pseudoInput.setEnabled(true);
+        connexionButton.setEnabled(true);
 
         // Désactive l'interface de tchat
         messageInput.setEnabled(false);
         envoyerButton.setEnabled(false);
+        deconnexionButton.setEnabled(false);
     }
 
     /**

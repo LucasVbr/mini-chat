@@ -1,16 +1,22 @@
-# Question 6
+<h1 align="center">Projet Mini Chat</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
+</p>
 
-## Avant la communication
-Utiliser le RSA, avant toute communication. 
-Le client et le server génèrent 2 clés (une publique et une privées)
-Ils s'échangent leurs clé publiques.
+> Projet de réseau, semestre 5 Licence Informatique 2022-2023 à l'INU Champollion.
 
-![img](https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Asymmetric_cryptography_-_step_1.svg/800px-Asymmetric_cryptography_-_step_1.svg.png)
+## Auteurs
 
-## Pendant la communication
-Lors qu'un utilisateur veut envoyer un message, il crypte son
-message avec la clé pulique de son interlocuteur et lui envoie.
-La personne qui reçois le message, le décrypte le message avec
-sa propre clé privée.
+👤 **Gaël BURGUÈS**
 
-![img](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Asymmetric_cryptography_-_step_2.svg/800px-Asymmetric_cryptography_-_step_2.svg.png)
+* Github: [@Gagl08](https://github.com/Gagl08)
+
+👤 **Laurian DUFRECHOU**
+
+* Github: [@Laurian-Dufrechou](https://github.com/Laurian-Dufrechou)
+
+👤 **Lucàs VABRE**
+
+* Github: [@LucasVbr](https://github.com/LucasVbr)
+
+***
