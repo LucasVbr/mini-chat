@@ -4,11 +4,7 @@
     <option name="ANALYZE_TEST_SOURCES" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="79e91d13-7d5f-4b9a-954b-9bc7cde074fc" name="Changes" comment="" />
     <list id="ecb4d6c3-70b5-4e80-ba94-fcec6f42612f" name="Changes by burgu" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +136,7 @@
       <workItem from="1669724625302" duration="6630000" />
       <workItem from="1670230395395" duration="19588000" />
       <workItem from="1670329829454" duration="6520000" />
-      <workItem from="1670405222370" duration="1864000" />
+      <workItem from="1670405222370" duration="2227000" />
     </task>
     <servers />
   </component>
