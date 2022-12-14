@@ -30,3 +30,4 @@ bin/
 
 # Doc
 doc/
+.idea/workspace.xml
